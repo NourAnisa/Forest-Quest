@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Forest Quest, contoh game 2D untuk materi alur navigasi gameplay, asset, dan level game.">
+  <title>Forest Quest | Contoh Game Pertemuan 3</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Pengembangan Aplikasi Game · Pertemuan 3</p>
+        <h1>Forest Quest</h1>
+      </div>
+      <button id="soundButton" class="icon-button" type="button" aria-label="Aktifkan atau matikan suara">Suara: Aktif</button>
+    </header>
+
+    <section class="game-frame" aria-label="Area permainan Forest Quest">
+      <canvas id="gameCanvas" width="960" height="540" tabindex="0" aria-label="Game Forest Quest"></canvas>
+
+      <div id="hud" class="hud is-hidden" aria-live="polite">
+        <div class="hud-item"><span>Level</span><strong id="levelText">1/3</strong></div>
+        <div class="hud-item health-item"><span>Energi</span><div class="health-track"><div id="healthBar" class="health-bar"></div></div></div>
+        <div class="hud-item"><span id="resourceLabel">Herbal</span><strong id="resourceText">0/5</strong></div>
+        <div class="hud-item"><span>Musuh</span><strong id="enemyText">0</strong></div>
+        <button id="pauseButton" class="hud-button" type="button">Jeda</button>
+      </div>
+
+      <div id="messageBanner" class="message-banner is-hidden" aria-live="polite"></div>
+
+      <section id="menuScreen" class="screen-panel">
+        <div class="panel-card hero-card">
+          <p class="chapter">Contoh Game 2D Edukatif</p>
+          <h2>Jelajahi hutan. Kumpulkan sumber daya. Buka portal.</h2>
+          <p>Game ini menunjukkan hubungan antara navigasi gameplay, asset, dan progresi tiga level.</p>
+          <div class="button-stack">
+            <button id="startButton" class="primary-button" type="button">Mulai Permainan</button>
+            <button id="guideButton" class="secondary-button" type="button">Cara Bermain</button>
+          </div>
+          <p class="small-note">Kontrol: WASD / tombol panah · Spasi menyerang · P menjeda</p>
+        </div>
+      </section>
+
+      <section id="guideScreen" class="screen-panel is-hidden">
+        <div class="panel-card guide-card">
+          <p class="chapter">Cara Bermain</p>
+          <h2>Misi Penjaga Hutan</h2>
+          <div class="guide-grid">
+            <div><kbd>WASD</kbd><span>Bergerak</span></div>
+            <div><kbd>↑ ↓ ← →</kbd><span>Bergerak</span></div>
+            <div><kbd>SPASI</kbd><span>Serangan energi</span></div>
+            <div><kbd>P</kbd><span>Jeda permainan</span></div>
+          </div>
+          <ul>
+            <li>Kumpulkan seluruh sumber daya pada setiap level.</li>
+            <li>Hindari atau kalahkan makhluk bayangan.</li>
+            <li>Setelah target terpenuhi, masuk ke portal bercahaya.</li>
+          </ul>
+          <button id="guideBackButton" class="primary-button" type="button">Kembali</button>
+        </div>
+      </section>
+
+      <section id="statusScreen" class="screen-panel is-hidden">
+        <div class="panel-card status-card">
+          <p id="statusChapter" class="chapter">Permainan Dijeda</p>
+          <h2 id="statusTitle">Tarik napas sejenak</h2>
+          <p id="statusDescription">Progres level tetap tersimpan selama halaman tidak ditutup.</p>
+          <div id="statusActions" class="button-stack"></div>
+        </div>
+      </section>
+
+      <div id="touchControls" class="touch-controls is-hidden" aria-label="Kontrol sentuh">
+        <div class="dpad">
+          <button data-key="ArrowUp" aria-label="Atas">▲</button>
+          <button data-key="ArrowLeft" aria-label="Kiri">◀</button>
+          <button data-key="ArrowDown" aria-label="Bawah">▼</button>
+          <button data-key="ArrowRight" aria-label="Kanan">▶</button>
+        </div>
+        <button class="attack-button" data-key="Space" aria-label="Serang">Serang</button>
+      </div>
+    </section>
+
+    <section class="learning-strip">
+      <article><strong>Gameplay</strong><span>Eksplorasi, koleksi, pertarungan, dan portal.</span></article>
+      <article><strong>Asset</strong><span>Karakter, musuh, sumber daya, rintangan, HUD, dan audio.</span></article>
+      <article><strong>Level</strong><span>Tantangan meningkat dari pengenalan hingga penguasaan mekanik.</span></article>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
